@@ -74,7 +74,7 @@ build:
 ## workflow: build the alfred workflow
 .PHONY: workflow
 workflow: set-version update-readme clean build
-	@zip -r "${WORKFLOW_FILE_NAME}" ${BINARY_NAME}* README.md LICENSE info.plist icons icon.png images
+	@zip -r "${WORKFLOW_FILE_NAME}" ${BINARY_NAME}* README.md LICENSE info.plist icons icon.png images run.sh
 	@echo "Workflow created: ${WORKFLOW_FILE_NAME}"
 
 
