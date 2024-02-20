@@ -73,7 +73,7 @@ build:
 
 ## workflow: build the alfred workflow
 .PHONY: workflow
-workflow: set-verion update-readme build
+workflow: set-version update-readme clean build
 	@zip -r "${WORKFLOW_FILE_NAME}" ${BINARY_NAME}* README.md LICENSE info.plist icons icon.png images
 	@echo "Workflow created: ${WORKFLOW_FILE_NAME}"
 
@@ -81,15 +81,15 @@ workflow: set-verion update-readme build
 ## clean: remove build artifacts
 .PHONY: clean
 clean:
-	rm -f ${BINARY_NAME} ${BINARY_NAME}_amd64 ${BINARY_NAME}_arm64 ${BINARY_NAME}.alfredworkflow
+	@rm -f ${BINARY_NAME} ${BINARY_NAME}_amd64 ${BINARY_NAME}_arm64 *.alfredworkflow
 
 # ==================================================================================== #
 # RELEASE
 # ==================================================================================== #
 
-## set-verion: set workflow version to plist
-.PHONY: set-verion
-set-verion:
+## set-version: set workflow version to plist
+.PHONY: set-version
+set-version:
 	@read -p "Enter version [$(VERSION)]: " VERSION \
 		&& VERSION="$${VERSION:-"$(VERSION)"}" \
 		&& /usr/libexec/PlistBuddy -c "Set :version $$VERSION" info.plist && echo "Version updated"
@@ -122,6 +122,6 @@ tag-push:
 
 ## release: create a new release
 .PHONY: release
-release: .check-dependencies .check-git-status set-verion .refresh-version .check-version workflow tag-release tag-push
+release: .check-dependencies .check-git-status set-version .refresh-version .check-version workflow tag-release tag-push
 	@gh release create --draft --generate-notes --latest --verify-tag "v$(VERSION)" *.alfredworkflow
 	@echo "Release v$(VERSION) created"
