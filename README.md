@@ -4,8 +4,12 @@ This Alfred workflow is designed to help you quickly check your YNAB (You Need A
 
 ## Features
 
-- Quick access to your YNAB budget from Alfred.
-- Easy to use and intuitive interface.
+- Quick check for uncategorized or unapproved transactions.
+- Supports search. Just keep typing to filter the results, with or without a space.
+- Check for category balances.
+- Check for account balances.
+- Press `Enter` to copy the selected balance to the clipboard.
+- Press `Cmd + Enter` to open the selected account or a whole budget in YNAB.
 
 ## Installation
 
@@ -15,15 +19,6 @@ This Alfred workflow is designed to help you quickly check your YNAB (You Need A
 ## Usage
 
 Invoke Alfred and type `yn`.
-
-## Features
-
-- Quick check for uncategorized or unapproved transactions.
-- Supports search. Just keep typing to filter the results, with or without a space.
-- Check for category balances.
-- Check for account balances.
-- Press `Enter` to copy the selected balance to the clipboard.
-- Press `Cmd + Enter` to open the selected account or a whole budget in YNAB.
 
 ## Makefile targets
 
