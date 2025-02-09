@@ -3,7 +3,7 @@ module com.grybkov.alfred-ynab
 go 1.21.6
 
 require (
-	github.com/brunomvsouza/ynab.go v1.4.0
+	github.com/brunomvsouza/ynab.go v1.5.0
 	github.com/deanishe/awgo v0.29.1
 	golang.design/x/clipboard v0.7.0
 )
